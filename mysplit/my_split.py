@@ -1,13 +1,13 @@
 def my_split(string,separator):
-    out_list = []
+    result = []
     while separator in string:
         for i,j in enumerate(string):
             if j == separator:
                 list_element = string[:i]
                 string = string[i+1:]
                 if not string == "":
-                    out_list.append(list_element)
+                    result.append(list_element)
                 break
     if not string == "":
-        out_list.append(string)
-    return out_list
+        result.append(string)
+    return result

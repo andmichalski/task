@@ -1,0 +1,33 @@
+Main task folder "task"
+I have worked on Python 3.6.5
+Before running programs install requirements.
+Example: in ubuntu in main function folder type:
+"pip install -r requirements.txt
+
+First task
+In folder "mysplit" two files my_split.py and test.py (unit tests for this function).
+In file my split function my_split.
+In python console type:
+from mysplit.my_split import my_split
+my_split(string, separator)
+
+where string is a string object to split and separator is a character which split words
+
+Second task
+I have used opencv-python module because it is more lightweight than matplotlib.
+In this program we do not need see many plots so matplotlib is no necessary.
+Main folder function is "collect_image" folder.
+
+There are few files in folder:
+func.py - written functions are here
+main.py - main function to execute
+test_file.npy - numpy array to mock to speed up unittests
+tests.py - unittests for written functions
+
+To execute program please type in python console:
+from collect_image.main import collect_image
+collect_image(url)
+where url is an address in python string (have to be in qoutes like "http:......pl")
+after image is binarized You decide to save or not by click "s" button or any key.
+The binarized image is saved in main function folder as "bin_image.jpg" 
+
