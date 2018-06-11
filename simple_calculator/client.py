@@ -1,7 +1,7 @@
 import socket
 
 
-class MyClient:
+class Client:
 
     def __init__(self):
         self.s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -21,7 +21,7 @@ class MyClient:
 
 
 def main():
-    client = MyClient()
+    client = Client()
     while True:
         calculation = client.get_input()
         client.send_calculation(calculation)

@@ -1,24 +1,32 @@
 import socket
 
 
-class MyServer:
+class CalculatorServer:
 
     def __init__(self):
         self.s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
     def calculate(self, data):
+
+        def split_by_operator(data, oper):
+            return [int(d) for d in data.split(oper)]
+
         if "+" in data:
-            nlist = [int(a) for a in data.split("+")]
+            nlist = split_by_operator(data, "+")
             return sum(nlist)
         elif "-" in data:
-            nlist = [int(a) for a in data.split("-")]
+            nlist = split_by_operator(data, "-")
             return nlist[0] - nlist[1]
         elif "*" in data:
-            nlist = [int(a) for a in data.split("*")]
+            nlist = split_by_operator(data, "*")
             return nlist[0] * nlist[1]
         elif "/" in data:
-            nlist = [int(a) for a in data.split("/")]
-            return nlist[0] / nlist[1]
+            nlist = split_by_operator(data, "/")
+            try:
+                division = nlist[0] / nlist[1]
+            except ZeroDivisionError:
+                division = "You can not divide by 0"
+            return division
         elif data == "exit":
             self.s.close()
             exit(0)
@@ -38,7 +46,7 @@ class MyServer:
 
 
 def main():
-    server = MyServer()
+    server = CalculatorServer()
     server.calc_server()
 
 

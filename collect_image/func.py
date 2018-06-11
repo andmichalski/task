@@ -1,4 +1,4 @@
-import urllib
+import urllib.request
 
 import cv2 as cv
 import numpy as np
@@ -25,7 +25,8 @@ def find_right_text_size(image, text):
         font_scale -= 0.1
         text_size = cv.getTextSize(text, font, font_scale, font_thick)
         if font_scale == 0 and font_thick == 0:
-            return print("Image to small to put text")
+            print("Image to small to put text")
+            return
     image = cv.putText(image, text, (20, 150), font, font_scale, (0, 0, 0), font_thick)
     return image
 
