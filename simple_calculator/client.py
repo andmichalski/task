@@ -1,5 +1,6 @@
 import socket
 
+
 class MyClient:
 
     def __init__(self):
@@ -10,15 +11,21 @@ class MyClient:
         calculation = input("Write here: ")
         return calculation
 
-
-    def send_equation(self, calculation):
+    def send_calculation(self, calculation):
         self.s.sendto(calculation.encode('utf-8'), ("127.0.0.1", 5005))
-        calculation = self.s.recv(1024)
+        if calculation == "exit":
+            self.s.close()
+            exit(0)
+        calculation, addr = self.s.recvfrom(1024)
         print("Got: ", calculation.decode('utf-8'))
 
+
 def main():
-    server = MyClient()
-    calculation = server.get_input()
-    server.send_equation(calculation)
+    client = MyClient()
+    while True:
+        calculation = client.get_input()
+        client.send_calculation(calculation)
+
+
 if __name__ == "__main__":
     main()

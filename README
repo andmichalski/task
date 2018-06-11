@@ -29,5 +29,21 @@ from collect_image.main import collect_image
 collect_image(url)
 where url is an address in python string (have to be in qoutes like "http:......pl")
 after image is binarized You decide to save or not by click "s" button or any key.
-The binarized image is saved in main function folder as "bin_image.jpg" 
+The binarized image is saved in main function folder as "bin_image.jpg"
+
+Thrid task
+I have use "socket" module. I have not used "my_split" function becasue I want to isolate every task.
+Main function folder - "simple_calculator". There are 3 files:
+-tests.py - unit tests for this
+-server.py - server script
+-client.py - client script
+
+To use this scrips You need to type in terminal (in main function folder):
+python server.py <ENTER> - this run server in background
+python client.py <ENTER> - this command run client
+
+Now You can type two numbers and mathematical character like "+-*/" other are not accepted.
+Server send You response with result. 
+To exit server and client please type in client line:
+exit
 
